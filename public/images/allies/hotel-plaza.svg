@@ -1,0 +1,10 @@
+<svg width="520" height="160" viewBox="0 0 520 160" xmlns="http://www.w3.org/2000/svg">
+  <g fill="none" stroke="#1f2937" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 30 100 L 30 55"/>
+    <path d="M 30 65 L 75 65 Q 85 65 85 75 L 85 100"/>
+    <ellipse cx="40" cy="65" rx="6" ry="4"/>
+    <path d="M 30 100 L 85 100"/>
+    <path d="M 22 100 L 92 100"/>
+  </g>
+  <text x="115" y="98" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="46" fill="#1f2937" letter-spacing="0.5">Hotel Plaza</text>
+</svg>

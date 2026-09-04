@@ -1,0 +1,9 @@
+<svg width="520" height="160" viewBox="0 0 520 160" xmlns="http://www.w3.org/2000/svg">
+  <g fill="none" stroke="#78350f" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 25 60 L 25 90 Q 25 102 37 102 L 63 102 Q 75 102 75 90 L 75 60 Z"/>
+    <path d="M 75 68 Q 92 68 92 82 Q 92 96 75 96"/>
+    <path d="M 38 50 Q 35 42 40 36"/>
+    <path d="M 52 50 Q 49 42 54 36"/>
+  </g>
+  <text x="112" y="98" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="46" fill="#78350f" letter-spacing="0.5">Cafe Andina</text>
+</svg>

@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# MGR Servicios Integrales — sitio web
 
-## Getting Started
+Landing institucional de 5 páginas para MGR Servicios Integrales (limpieza profesional y
+portería), construido con Next.js 16 (App Router) + TypeScript + Tailwind CSS + shadcn/ui.
 
-First, run the development server:
+## Stack
+
+- Next.js 16 (App Router, Turbopack)
+- Tailwind CSS v4 (tokens de marca en [app/globals.css](app/globals.css))
+- shadcn/ui (base [Base UI](https://base-ui.com), no Radix — los componentes en
+  `components/ui` usan la prop `render` en vez de `asChild` para polimorfismo)
+- Framer Motion (`components/motion/fade-in.tsx`)
+- react-hook-form + zod
+- Resend (envío de emails desde los Route Handlers de `/api`)
+- lucide-react (v1 — sin íconos de marcas; los de redes sociales están a mano en
+  `components/icons/social-icons.tsx`)
+
+## Primeros pasos
 
 ```bash
+npm install
+cp .env.example .env.local   # completar las variables (ver abajo)
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abrí [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Variables de entorno
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Ver [.env.example](.env.example):
 
-## Learn More
+- `RESEND_API_KEY` — API key de [Resend](https://resend.com), usada por
+  `app/api/send-quote` y `app/api/send-application`.
+- `CONTACT_EMAIL_TO` — casilla que recibe las cotizaciones y postulaciones.
+- `NEXT_PUBLIC_WHATSAPP_NUMBER` — número de WhatsApp de la empresa (formato
+  internacional sin "+", ej. `59899123456`). **Placeholder hasta que se confirme el número real.**
 
-To learn more about Next.js, take a look at the following resources:
+## Estructura
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `app/` — páginas (Inicio, Servicios, Quiénes somos, Contacto, Trabaja con nosotros),
+  Route Handlers de email, `sitemap.ts`, `robots.ts`, `icon.svg`.
+- `components/layout` — Header, Footer, Logo.
+- `components/sections` — Hero y demás bloques reutilizables entre páginas.
+- `components/forms` — `QuoteForm` (WhatsApp + email) y `ApplicationForm` (email con CV adjunto).
+- `components/ui` — primitivos de shadcn/ui.
+- `lib/constants` — contenido del sitio (servicios, valores, equipo, FAQ, aliados, nav).
+- `lib/validations` — schemas de zod para los formularios.
+- `lib/site-config.ts` — nombre, contacto, helper de link de WhatsApp.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Pendientes de contenido
 
-## Deploy on Vercel
+Buscar `TODO` en el código (o ver el checklist original del proyecto) para la lista de
+assets/datos provisorios: logo transparente, fotos reales de servicios y equipo, logos de
+aliados, número de WhatsApp, link de Facebook y textos definitivos.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deploy
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Pensado para Vercel sin configuración adicional más allá de cargar las variables de
+entorno del paso anterior.
