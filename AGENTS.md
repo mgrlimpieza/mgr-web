@@ -137,7 +137,7 @@ Es el **mismo componente/tratamiento visual** en las 5 paginas — solo cambia e
 - Formato: PNG con fondo transparente, o SVG.
 - Tamano de archivo: ~400x160px (altura ~160px, 2-3x el tamano visible en pantalla), ancho variable segun el logo, con margen interno prolijo.
 - Peso: menor a 80-100kb por archivo.
-- Ubicacion: `public/images/logos-empresas/`, nombres en minusculas sin acentos ni espacios (ej: `hotel-plaza.svg`).
+- Ubicacion: `public/images/allies/` (ESTA es la carpeta real que usa el codigo — no crear ni usar `logos-empresas/`, quedo documentada por error en una version anterior de este archivo). Nombres en minusculas sin acentos ni espacios (ej: `hotel-plaza.svg`).
 - Render: altura fija + `width: auto` + `object-contain`, nunca ancho fijo (para no deformar logos con distinta proporcion). Efecto opcional: escala de grises en reposo, color al hover.
 - Ya existen 6 logos placeholder ficticios (no son clientes reales, son de relleno para probar el diseno): `hotel-plaza.svg`, `cafe-andina.svg`, `constructora-sur.svg`, `grupo-lumen.svg`, `edificio-norte.svg`, `estudio-vega.svg`. Usar estos hasta tener los logos reales de los clientes de MGR.
 - Estilo: logotipo limpio (icono lineal integrado + texto), **sin insignia/circulo de fondo**. Tamano de renderizado generoso (altura mayor a la inicial, tipo `h-16`/`h-20`), inspirado en como github.com muestra sus logos de clientes.

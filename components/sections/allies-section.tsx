@@ -9,7 +9,7 @@ const SECONDS_PER_ITEM = 6;
 /**
  * Empresas con las que trabajamos.
  * TODO: reemplazar los logos placeholder (ficticios) por los logos reales
- * de las empresas aliadas de MGR, manteniendo las specs de public/images/logos-empresas/.
+ * de las empresas aliadas de MGR, manteniendo las specs de public/images/allies/.
  */
 export function AlliesSection() {
   // Se duplica el array para que el loop de -50% sea imperceptible.
