@@ -73,7 +73,7 @@ Tipografia: Inter o Plus Jakarta Sans (Google Fonts).
 
 - **Sin boton flotante** en el sitio.
 - Visible unicamente en la pagina `/contacto` (boton directo + el que dispara el formulario de cotizacion).
-- Numero real: variable de entorno `NEXT_PUBLIC_WHATSAPP_NUMBER` (placeholder hasta tener el numero definitivo).
+- Numero real: `siteConfig.whatsappNumber` en `lib/site-config.ts` (dato publico, no es variable de entorno).
 - El formulario de `/trabaja-con-nosotros` **no** usa WhatsApp para el envio del CV (los links `wa.me` no soportan adjuntos) — ese formulario va solo por email.
 
 ## Formularios
@@ -85,7 +85,7 @@ Tipografia: Inter o Plus Jakarta Sans (Google Fonts).
 **Ambos formularios** deben mostrar debajo del boton de envio:
 > "Tus datos seran utilizados unicamente para responder tu consulta y no seran compartidos con terceros."
 
-Variables de entorno necesarias (`.env.example`): `RESEND_API_KEY`, `NEXT_PUBLIC_WHATSAPP_NUMBER`, `CONTACT_EMAIL_TO`.
+Variable de entorno necesaria (`.env.example`): `RESEND_API_KEY`. El numero de WhatsApp (`siteConfig.whatsappNumber`) y el email publico (`siteConfig.contactEmail`) son valores fijos en `lib/site-config.ts`, no variables de entorno — no son datos sensibles. El email de entrega real de Resend (`siteConfig.notificationEmail`) tambien vive ahi, separado del email publico mientras la casilla del dominio propio no este activa.
 
 ## FAQ (pagina Contacto, componente accordion)
 

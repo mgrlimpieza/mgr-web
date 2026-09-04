@@ -26,7 +26,7 @@ export async function POST(request: Request) {
   }
 
   const { name, phone, email, company, message } = parsed.data;
-  const to = process.env.CONTACT_EMAIL_TO ?? siteConfig.contactEmail;
+  const to = siteConfig.notificationEmail;
 
   try {
     const resend = new Resend(apiKey);

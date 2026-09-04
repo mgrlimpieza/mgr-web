@@ -47,7 +47,7 @@ export async function POST(request: Request) {
   }
 
   const { name, phone, email, position, message } = parsed.data;
-  const to = process.env.CONTACT_EMAIL_TO ?? siteConfig.contactEmail;
+  const to = siteConfig.notificationEmail;
 
   try {
     const buffer = Buffer.from(await cv.arrayBuffer());

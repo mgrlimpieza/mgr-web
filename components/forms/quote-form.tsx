@@ -37,20 +37,22 @@ export function QuoteForm() {
   const onSubmit = async (data: QuoteFormValues) => {
     setIsSubmitting(true);
     try {
-      // Enviamos una copia por email en paralelo; si falla, no bloqueamos el envío por WhatsApp.
-      fetch("/api/send-quote", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      })
-        .then((res) => {
-          if (!res.ok) throw new Error("email-failed");
-        })
-        .catch(() => {
-          toast.error(
-            "Tu solicitud se envió por WhatsApp, pero no pudimos enviar la copia por email."
-          );
-        });
+      // Copia por email deshabilitada por el momento (pedido del cliente): la
+      // cotización solo se envía por WhatsApp. Descomentar para reactivar el envío
+      // en paralelo por /api/send-quote.
+      // fetch("/api/send-quote", {
+      //   method: "POST",
+      //   headers: { "Content-Type": "application/json" },
+      //   body: JSON.stringify(data),
+      // })
+      //   .then((res) => {
+      //     if (!res.ok) throw new Error("email-failed");
+      //   })
+      //   .catch(() => {
+      //     toast.error(
+      //       "Tu solicitud se envió por WhatsApp, pero no pudimos enviar la copia por email."
+      //     );
+      //   });
 
       const waLink = buildWhatsappLink(buildQuoteMessage(data));
       window.open(waLink, "_blank", "noopener,noreferrer");
