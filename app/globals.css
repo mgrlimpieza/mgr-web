@@ -158,6 +158,22 @@
     );
   }
 
+  /* Imagen de cada bloque de /servicios: en mobile se funde por abajo con el texto
+     que le sigue; desde lg se funde por la derecha (el texto queda al costado).
+     Solo se desvanecen los bordes sin contenido: las fotos traen logo y banner
+     de texto del lado izquierdo, que tienen que quedar siempre visibles. */
+  .mask-fade-service {
+    mask-image: linear-gradient(to bottom, black 88%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 88%, transparent 100%);
+  }
+
+  @media (min-width: 64rem) {
+    .mask-fade-service {
+      mask-image: linear-gradient(to right, black 62%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to right, black 62%, transparent 100%);
+    }
+  }
+
   .animate-marquee {
     animation: marquee linear infinite;
   }

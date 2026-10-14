@@ -168,7 +168,7 @@ No usar el logo completo en espacios menores a ~100px de alto — siempre usar l
 ## Pendiente de contenido real (no bloquea el desarrollo, usar placeholders)
 
 - Logo en version PNG transparente / SVG (hoy JPEG con fondo blanco).
-- Fotos reales para los 4 bloques de Servicios y hero de Quienes somos (hoy reutilizan las 2 fotos ya provistas: `menuprincipal.jpeg` y `cotizaciones.jpeg`).
+- Foto real para el hero de Quienes somos (hoy reutiliza `cotizaciones.jpeg`). Los 4 bloques de Servicios ya tienen sus fotos (`limpieza-integral`, `limpieza-final-obra`, `limpieza-profunda`, `limpieza-eventos`); traen logo y banner integrados del lado izquierdo, por eso la imagen va siempre a la izquierda y solo se difumina el borde derecho.
 - Fotos reales del equipo.
 - Nombre real de "Servicio tecnico" y "Contador".
 - Logos reales de empresas aliadas.

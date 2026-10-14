@@ -34,7 +34,7 @@ export type Service = {
   /** Sub-bloques con título + descripción (ej. etapas de un evento). */
   bullets?: ServiceBullet[];
   features?: ServiceFeature[];
-  /** Placeholder de imagen: TODO reemplazar por foto real del servicio. */
+  /** Foto 3:2 (1536x1024) con logo y banner del servicio integrados del lado izquierdo. */
   image: string;
   imageAlt: string;
 };
@@ -58,9 +58,8 @@ export const services: Service[] = [
       { icon: ShieldCheck, label: "Supervisión permanente" },
       { icon: ClipboardList, label: "Plan de trabajo personalizado" },
     ],
-    // TODO: reemplazar por foto real del servicio
-    image: "/images/menuprincipal.jpeg",
-    imageAlt: "Personal de MGR realizando limpieza de oficina",
+    image: "/images/limpieza-integral.jpeg",
+    imageAlt: "Oficina moderna impecable: servicio de Higiene Integral de MGR",
   },
   {
     slug: "limpieza-final-de-obra",
@@ -83,9 +82,8 @@ export const services: Service[] = [
       "Galpones y depósitos",
       "Viviendas particulares",
     ],
-    // TODO: reemplazar por foto real del servicio
-    image: "/images/cotizaciones.jpeg",
-    imageAlt: "Limpieza final de obra en edificio en construcción",
+    image: "/images/limpieza-final-obra.jpeg",
+    imageAlt: "Aspiradora industrial en un piso recién terminado: servicio de Limpieza Final de Obra de MGR",
   },
   {
     slug: "limpieza-profunda",
@@ -98,9 +96,8 @@ export const services: Service[] = [
       "Este servicio puede realizarse de forma puntual o periódica, según las necesidades de cada cliente, y contempla una limpieza exhaustiva de todas las áreas con personal especializado y equipamiento profesional.",
       "También ofrecemos limpiezas profundas en viviendas antes o después de una mudanza, reformas o cambios de ocupación.",
     ],
-    // TODO: reemplazar por foto real del servicio
-    image: "/images/menuprincipal.jpeg",
-    imageAlt: "Limpieza profunda de superficies de vidrio en oficina",
+    image: "/images/limpieza-profunda.jpeg",
+    imageAlt: "Limpieza profunda de alfombra con máquina profesional: servicio de Limpieza Profunda de MGR",
   },
   {
     slug: "limpieza-de-eventos",
@@ -130,9 +127,8 @@ export const services: Service[] = [
           "Realizamos la limpieza final del establecimiento, dejando las instalaciones en óptimas condiciones.",
       },
     ],
-    // TODO: reemplazar por foto real del servicio
-    image: "/images/cotizaciones.jpeg",
-    imageAlt: "Salón preparado tras un servicio de limpieza de eventos",
+    image: "/images/limpieza-eventos.jpeg",
+    imageAlt: "Salón de eventos con carro de limpieza: servicio de Limpieza de Eventos de MGR",
   },
 ];
 

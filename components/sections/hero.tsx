@@ -24,6 +24,8 @@ type HeroProps = {
   className?: string;
   /** Object-position de la imagen full-bleed: ajustar por foto si el encuadre por defecto no queda bien. */
   imagePosition?: string;
+  /** Oculta la imagen en mobile (solo se muestra desde lg). */
+  hideImageOnMobile?: boolean;
 };
 
 export function Hero({
@@ -35,6 +37,7 @@ export function Hero({
   variant = "contained",
   className,
   imagePosition = "object-[center_12%]",
+  hideImageOnMobile = false,
 }: HeroProps) {
   const isFullBleed = variant === "full-bleed";
 
@@ -63,15 +66,25 @@ export function Hero({
         <div
           className={cn(
             "flex flex-col gap-6",
-            isFullBleed && "px-4 py-14 sm:px-6 sm:py-16 lg:px-12 lg:py-14"
+            isFullBleed &&
+              cn(
+                "px-4 sm:px-6 lg:px-12 lg:py-14",
+                // Sin imagen en mobile el hero queda solo con texto: menos aire arriba
+                // para que no se vea un bloque vacío antes del título.
+                hideImageOnMobile ? "pt-8 pb-10 sm:pt-10 sm:pb-12" : "py-14 sm:py-16"
+              )
           )}
         >
-          <FadeIn>
-            <span className="flex items-center gap-2 text-xs font-bold tracking-wider text-brand-blue uppercase">
-              <span className="h-px w-6 bg-brand-blue" />
-              {eyebrow}
-            </span>
-          </FadeIn>
+          {/* Sin eyebrow no se renderiza nada: si no, el elemento vacío igual ocupa
+              un hueco del gap y empuja el título hacia abajo. */}
+          {eyebrow && (
+            <FadeIn>
+              <span className="flex items-center gap-2 text-xs font-bold tracking-wider text-brand-blue uppercase">
+                <span className="h-px w-6 bg-brand-blue" />
+                {eyebrow}
+              </span>
+            </FadeIn>
+          )}
 
           <FadeIn delay={0.05}>
             <h1 className="text-4xl leading-[1.1] font-extrabold tracking-tight text-brand-navy sm:text-5xl lg:text-[3.25rem]">
@@ -97,6 +110,7 @@ export function Hero({
           delay={0.1}
           className={cn(
             "relative aspect-4/5 w-full",
+            hideImageOnMobile && "hidden lg:block",
             isFullBleed
               ? // A partir de lg, la imagen se saca del flujo del grid y se ancla al
                 // borde derecho real del viewport (full bleed), ocupando ~60% del ancho.
@@ -122,6 +136,15 @@ export function Hero({
           />
         </FadeIn>
       </div>
+
+      {/* Sin imagen en mobile, una línea sutil marca dónde termina el hero y empieza
+          el contenido (desde lg la imagen ya cumple ese rol). */}
+      {hideImageOnMobile && (
+        <div
+          aria-hidden
+          className="mx-4 h-px bg-gradient-to-r from-transparent via-brand-navy/15 to-transparent sm:mx-6 lg:hidden"
+        />
+      )}
     </section>
   );
 }

@@ -17,7 +17,8 @@ export default function ServiciosPage() {
     <>
       <Hero
         variant="full-bleed"
-        eyebrow="Nuestros servicios"
+        hideImageOnMobile
+        eyebrow=""
         title="Nuestros servicios"
         description="Soluciones profesionales de limpieza adaptadas a cada necesidad. Calidad, compromiso y confianza en cada servicio que brindamos."
         image={{
@@ -30,7 +31,7 @@ export default function ServiciosPage() {
 
       <div className="bg-white">
         {services.map((service, index) => (
-          <ServiceBlock key={service.slug} service={service} reverse={index % 2 === 1} />
+          <ServiceBlock key={service.slug} service={service} tinted={index % 2 === 1} />
         ))}
       </div>
 
