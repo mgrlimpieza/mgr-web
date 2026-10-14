@@ -127,7 +127,7 @@ Es el **mismo componente/tratamiento visual** en las 5 paginas — solo cambia e
 
 - Sin label/tag "ALIADOS" (se saco por decision del cliente).
 - Ancho limitado y centrado: usar el mismo max-width que el resto de las secciones del sitio, no 100% del viewport.
-- Scroll infinito (marquee): array de logos duplicado (`[...logos, ...logos]`), animacion `translateX(0)` a `translateX(-50%)`, lineal e infinita, direccion derecha a izquierda.
+- Scroll infinito (marquee): dos grupos identicos de logos uno detras del otro, animacion `translateX(0)` a `translateX(-50%)`, lineal e infinita, direccion derecha a izquierda. Para que el empalme no tenga saltos: el espacio entre logos es `padding-right` de cada item (no `gap`, que deja las dos mitades de distinto ancho), cada grupo se rellena repitiendo logos hasta un minimo de items (si no, con pocos logos queda un hueco en blanco), las imagenes van con `loading="eager"` (con lazy no cargan hasta entrar en pantalla y se ven huecos en mobile) y `width`/`height` de cada aliado en `lib/constants/allies.ts` tienen que coincidir con las dimensiones reales del archivo (si no, el logo cambia de ancho al cargar y el carrusel pega un salto).
 - Velocidad: ~30-40 segundos por loop completo, proporcional al ancho total del contenido.
 - Degradado de mascara en los bordes izquierdo y derecho del contenedor (mismo criterio que el fade del hero).
 - **Sin pausa en hover** — el carrusel siempre tiene que estar en movimiento, nunca se detiene (decision explicita del cliente, se probo con pausa y no gusto).
